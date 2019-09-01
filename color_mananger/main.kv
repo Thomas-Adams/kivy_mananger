@@ -51,7 +51,8 @@
                 background_down: 'electric-violet-lighten.png'
                 background_color: get_color_from_hex('#d500f9')
                 background_image: ''
-                ActionButton:
+                overflow_image: 'overflow-image-white.png'
+                ColorActionButton:
                     canvas.before:
                         Color:
                             rgba: get_color_from_hex('#d500f9')
@@ -64,7 +65,9 @@
                     background_color: get_color_from_hex('#d500f9')
                     background_disabled: ''
                     background_disabled_down: ''
-                ActionButton:
+                    background_image: ''
+                    on_release: app.root.ids.main_manager.current= 'List'
+                ColorActionButton:
                     canvas.before:
                         Color:
                             rgba: get_color_from_hex('#d500f9')
@@ -77,9 +80,11 @@
                     background_disabled_down: ''
                     background_color: get_color_from_hex('#d500f9')
                     text: 'Create'
+                    background_image: ''
+                    on_release: app.root.ids.main_manager.current= 'Create'
+
     MainScreenManager:
         id: main_manager
-        transition: FadeTransition()
         ListScreen:
         CreateScreen:
 
@@ -97,7 +102,6 @@
         Button:
             text: 'List'
             on_release: app.root.ids.main_manager.current='Create'
-            on_press: app.root.ids.main_manager.current='Create'
 
 
 <CreateScreen>:
@@ -111,6 +115,5 @@
                 size: root.size
         orientation: 'vertical'
         Button:
-            text: 'List'
+            text: 'Create'
             on_release: app.root.ids.main_manager.current='List'
-            on_press: app.root.ids.main_manager.current='List'
