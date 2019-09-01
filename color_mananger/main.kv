@@ -1,0 +1,87 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+<MainView>:
+    canvas.before:
+        Color:
+            rgba: 0.9020, 0.9020, 0.9020, 1
+        Rectangle:
+            size: root.size
+    orientation: 'vertical'
+    pos: (0, root.height)
+    pos_hint: {'x':0, 'top': 1}
+    padding: [0, 0, 0, 0]
+    ActionBar:
+        canvas.before:
+            Color:
+                rgba: get_color_from_hex('#d500f9')
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        background_normal: 'electric-violet.png'
+        background_down: 'electric-violet-lighten.png'
+        background_color: get_color_from_hex('#d500f9')
+        padding: [0, 0, 0, 0]
+        pos_hint: {'x':0, 'top': 1}
+        background_image: ''
+        ActionView:
+            canvas.before:
+                Color:
+                    rgba: get_color_from_hex('#d500f9')
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            background_normal: 'electric-violet.png'
+            background_down: 'electric-violet-lighten.png'
+            background_color: get_color_from_hex('#d500f9')
+            background_image: ''
+            use_separator: True
+            ActionPrevious:
+                canvas.before:
+                    Color:
+                        rgba: get_color_from_hex('#d500f9')
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                title: 'Colors'
+                with_previous: False
+            ActionOverflow:
+                canvas.before:
+                    Color:
+                        rgba: get_color_from_hex('#d500f9')
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                background_normal: 'electric-violet.png'
+                background_down: 'electric-violet-lighten.png'
+                background_color: get_color_from_hex('#d500f9')
+                background_image: ''
+                ActionButton:
+                    canvas.before:
+                        Color:
+                            rgba: get_color_from_hex('#d500f9')
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    text: 'List'
+                    background_normal: 'electric-violet.png'
+                    background_down: 'electric-violet-lighten.png'
+                    background_color: get_color_from_hex('#d500f9')
+                    background_disabled: ''
+                    background_disabled_down: ''
+                ActionButton:
+                    canvas.before:
+                        Color:
+                            rgba: get_color_from_hex('#d500f9')
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    background_normal: 'electric-violet.png'
+                    background_down: 'electric-violet-lighten.png'
+                    background_disabled: ''
+                    background_disabled_down: ''
+                    background_color: get_color_from_hex('#d500f9')
+                    text: 'Create'
+    Label:
+        text: 'Hello'
+
+
+
