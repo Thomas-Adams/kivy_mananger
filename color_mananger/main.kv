@@ -1,10 +1,6 @@
 #:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
 <MainView>:
-    canvas.before:
-        Color:
-            rgba: 0.9020, 0.9020, 0.9020, 1
-        Rectangle:
-            size: root.size
     orientation: 'vertical'
     pos: (0, root.height)
     pos_hint: {'x':0, 'top': 1}
@@ -20,6 +16,7 @@
         background_down: 'electric-violet-lighten.png'
         background_color: get_color_from_hex('#d500f9')
         padding: [0, 0, 0, 0]
+        size_hint: (1, 0.1)
         pos_hint: {'x':0, 'top': 1}
         background_image: ''
         ActionView:
@@ -80,8 +77,40 @@
                     background_disabled_down: ''
                     background_color: get_color_from_hex('#d500f9')
                     text: 'Create'
-    Label:
-        text: 'Hello'
+    MainScreenManager:
+        id: main_manager
+        transition: FadeTransition()
+        ListScreen:
+        CreateScreen:
 
 
+<ListScreen>:
+    name: 'List'
+    size_hint: (1, 1)
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0.9020, 0.9020, 0.9020, 1
+            Rectangle:
+                size: root.size
+        orientation: 'vertical'
+        Button:
+            text: 'List'
+            on_release: app.root.ids.main_manager.current='Create'
+            on_press: app.root.ids.main_manager.current='Create'
 
+
+<CreateScreen>:
+    name: 'Create'
+    size_hint: (1, 1)
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0.9020, 0.9020, 0.9020, 1
+            Rectangle:
+                size: root.size
+        orientation: 'vertical'
+        Button:
+            text: 'List'
+            on_release: app.root.ids.main_manager.current='List'
+            on_press: app.root.ids.main_manager.current='List'
